@@ -1,0 +1,54 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#navBar {
+    display: block;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 5vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    padding-left: 3.4vw;
+    border-bottom: .2vw solid white;
+}
+
+.navButt {
+    float: left;
+}
+
+.navButt a {
+    text-align: center;
+    position: relative;
+    padding: 1.6vw 4vw;;
+    display: inline-block;
+    margin: 0px 0vw;
+    font-size: 1.4vw;
+    text-decoration: none;
+    color: white;
+    font-weight: normal;
+}
+
+.navButt a:hover {
+    font-weight: bold;
+}
+
+#legal {
+    height: 1.4vw;
+    width: 10vw;
+    position: absolute;
+    left: 33vw;
+    bottom: 1.5vw;
+    font-size: 1.2vw;
+    color: #282828;
+    text-decoration: none;
+}
+
+#legal:hover {
+    color: black;
+    text-decoration: underline;
+}

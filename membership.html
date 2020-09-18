@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>TKO</title>
+        <meta name="description" content="">
+        <link rel="icon" href="images/logo.png">
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="nav-style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <ul id="navBar">
+            <li class="navButt"><a href="index.html">Home</a></li>
+            <li class="navButt"><a href="story.html">Our Story</a></li>
+            <li class="navButt"><a href="community.html">Our Community</a></li>
+            <li class="navButt"><a href="classes.html">Classes</a></li>
+            <li class="navButt"><a href="instructors.html">Instructors</a></li>
+            <li class="navButt"><a href="membership.html">Contact</a></li>
+        </ul>
+        <div class="bgLogo"></div>
+        <div class="bgWhite">
+            <script type="text/javascript">
+                if (!window.rainmakerWebformLibrary) {
+                    window.rainmakerWebformLibrary = {         
+                        schoolId: Number("4667"),
+                        docLoaded:function(callback){
+                            if (document.readyState !== 'loading') callback();
+                            else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+                            else document.attachEvent('onreadystatechange', function () {
+                                if (document.readyState === 'complete') callback();
+                            });
+                        },
+                        getParameterByName: function(name) {
+                            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+                            var regexS = "[\\?&]" + name + "=([^&#]*)";
+                            var regex = new RegExp(regexS);
+                            var results = regex.exec(window.location.href);
+                            if (results === null)
+                                return "";
+                            else
+                                return decodeURIComponent(results[1].replace(/\+/g, " "));
+                        },
+                        setrmCookie: function(c_name, value, exdays) {
+                            var exdate = new Date();
+                            exdate.setDate(exdate.getDate() + exdays);
+                            var c_value = escape(value) + (!exdays ? "" : "; expires=" + exdate.toUTCString());
+                            document.cookie = c_name + "=" + c_value;
+                        },
+                        getrmCookie: function(c_name) {
+                            var i, x, y, ARRcookies = document.cookie.split(";");
+                            for (i = 0; i < ARRcookies.length; i++) {
+                                x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+                                y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+                                x = x.replace(/^\s+|\s+$/g, "");
+                                if (x === c_name) {
+                                    return unescape(y);
+                                }
+                            }
+                        },
+                        s4: function () {
+                            return Math.floor((1 + Math.random()) * 0x10000)
+                                .toString(16)
+                                .substring(1);
+                        },
+                        uuid: function () {
+                            return this.s4() + this.s4() + '-' + this.s4() +   '-' + this.s4() + '-' +
+                                this.s4() + '-' + this.s4() + this.s4() + this.s4();
+                        },
+                        processForms: function () {
+                            var bodyTags = document.getElementsByTagName('body');
+                            var bodyTag = bodyTags[0];
+                            var hasRainmakerForms = false;
+                            if (bodyTag) {
+                                var rmid = this.getParameterByName("rmid");
+                                var rainmakerForms = Array.from(document.getElementsByTagName('form')).filter(function (frm) { return frm.action.search(/addmembers\.com\/(?:rainmaker\/)?process\//i) !== -1 && !frm.rainmakerloaded; });
+                                if (rmid.length === 0) {
+                                    rmid = this.getrmCookie('rmid');
+                                }
+                                if (rmid === undefined) {
+                                    rmid = this.uuid();
+                                }
+                                if (rmid.length === 0) {
+                                    rmid = this.uuid();
+                                }
+                                if (rainmakerForms.length > 0) {
+                                    for (let frm of rainmakerForms) {
+                                        let formidTextbox = frm.querySelector('[name=formID]');
+                                        let rmidTextbox = frm.querySelector('[name=rmid]');
+                                        let formID = formidTextbox ? formidTextbox.value : "";
+                                        if (rmidTextbox) { rmidTextbox.value = rmid; }
+                                        bodyTag.insertAdjacentHTML("beforeend", '<img width="0" height="0" src="https://addmembers.com/rainmaker/webformtrack.ashx?rmid=' + rmid + '&FORM=' + formID + '&timeshere=' + intHowMany + '" />');
+                                        this.setrmCookie('rmid', rmid, 960);
+                                        var AtLeastOneOfferRequired = frm.querySelector('[name=OfferReq]');
+                                        var fadeOut = function (el,op) {
+                                            if (Number(el.style.opacity) === op) {
+                                                el.style.opacity = (Number(el.style.opacity) - .07).toString();
+                                                window.setTimeout(fadeOut, 100, el, Number(el.style.opacity));
+                                            }
+                                            if (el.style.opacity <= 0) {
+                                                el.innerHTML = '';
+                                            }
+                                        };
+                                        if (AtLeastOneOfferRequired) { 
+                                        frm.querySelectorAll('input[type=submi t]')[0].addEventListener('click', function () {
+                                            var offersWarn = frm.querySelector('[class=rainmaker-offerswarn]');
+                                            var offers = Array.from(document.getElementsByClassName('offerCheckbox'));
+                                            var AtLeastOneOfferIsSelected = offers.filter(function (a) { return a.checked; }).length;
+                                            if (offersWarn && !AtLeastOneOfferIsSelected) {
+                                                offersWarn.style.backgroundColor = 'white';
+                                                offersWarn.style.color = 'black';
+                                                offersWarn.style.opacity = 1;
+                                                offersWarn.style.fontWeight = 'bold';
+                                                offersWarn.innerHTML = 'An offer must be selected.';
+                                                fadeOut(offersWarn,1);
+                                                event.preventDefault();
+                                                event.stopImmediatePropagation();
+                                                event.stopPropagation();
+                                                event.returnValue = false;
+                                            }
+                                            event.returnValue = true;
+                                        });
+                                        }
+                                        frm.rainmakerloaded = true;
+                                    }
+                                }
+                                else if (!document.rainmakerloaded) {
+                                    bodyTag.insertAdjacentHTML("beforeend", '<img width="0" height="0" src="https://addmembers.com/rainmaker/webformtrack.ashx?rmid=' + rmid + '&SID=' + this.schoolId + '&timeshere=' + intHowMany + '" />');
+                                    this.setrmCookie('rmid', rmid, 960);
+                                    document.rainmakerloaded = true;
+                                }
+                            }
+                        }
+                    };
+                    var rmhowManyTimes = rainmakerWebformLibrary.getrmCookie("rmhowManyTimes");
+                    var intHowMany = parseFloat(rmhowManyTimes);
+                    if (isNaN(intHowMany)) {
+                        intHowMany = 1;
+                    }
+                    else {
+                        intHowMany++;
+                    }
+                    rainmakerWebformLibrary.setrmCookie('rmhowManyTimes', intHowMany, 960);
+                    rainmakerWebformLibrary.processForms();
+                }
+                rainmakerWebformLibrary.docLoaded(function(){
+                var webformElement = document.createElement('div'); webformElement.id="rainmaker_webform_placeholder_a6331d541c3448bea14b8f23889e0bd1";
+                    var theseScripts = Array.from(document.getElementsByTagName('script')).filter(function(el){ return !el.rainmakerSkip && el.src.search(/addmembers\.com\/rainmaker\/leadforms\/webform\.ashx.*id=SJb/i) !== -1; });
+                    var satisfied = false;
+                    if(theseScripts && theseScripts.length >    0){
+                        var topScript = theseScripts[0];
+                        topScript.rainmakerSkip = true;
+                        if(topScript.parentNode &&  topScript.parentNode.tagName.toLowerCase() !== 'head'){
+                            topScript.insertAdjacentElement('   afterend',webformElement);
+                            satisfied = true;
+                        }
+                    }
+                    if(!satisfied){
+                        var bodyTag = document.getElementsByTagName('body')[0];
+                        bodyTag.appendChild(webformElement);
+                    } document.getElementById('rainmaker_webform_placeholder_a6331d541c3448bea14b8f23889e0bd1').outerHTML = atob('PGRpdiBpZD0icmFpbm1ha2VyLWxlYWRmb3JtLWNvbnRhaW5lciI+CiAgICA8Zm9ybSBpZD0icm1mb3JtIiBuYW1lPSJybWZvcm0iIG1ldGhvZD0icG9zdCIgdGFyZ2V0PSJfcGFyZW50IiBhY3Rpb249Imh0dHBzOi8vYWRkbWVtYmVycy5jb20vcmFpbm1ha2VyL3Byb2Nlc3MvIj4KCiAgICAgICAgPGRpdiBpZD0icmFpbm1ha2VyLWxlYWRmb3JtLWJvZHkiPgogICAgICAgICAgICA8ZGl2IGlkPSJyYWlubWFrZXItbGVhZGZvcm0tYm9keS1tYXJnaW4iPgogICAgICAgICAgICAgICAgPCEtLSBCRUdJTk5JTkcgUkFJTk1BS0VSIEZPUk0gYWRkTWVtYmVycy5jb20gLS0+CjxpbnB1dCBuYW1lPSJmb3JtSUQiIHR5cGU9ImhpZGRlbiIgaWQ9ImZvcm1JRCIgdmFsdWU9ImExM2Y4NDY4ZTIxODQ4NzlhZjg4YWJhN2QwZmMzYzc2IiAvPgo8aW5wdXQgbmFtZT0iQXV0b1Jlc3BvbmRlciIgdHlwZT0iaGlkZGVuIiBpZD0iQXV0b1Jlc3BvbmRlciIgdmFsdWU9IlRydWUiIC8+CjxpbnB1dCBuYW1lPSJUYWdzIiB0eXBlPSJoaWRkZW4iIGlkPSJUYWdzIiB2YWx1ZT0iSW1wb3J0ZWQrUHJvc3BlY3QiIC8+CjxpbnB1dCBuYW1lPSJTZW5kVG8iIHR5cGU9ImhpZGRlbiIgaWQ9IlNlbmRUbyIgdmFsdWU9ImRhbmllbGxlQHRyb3lraWNrYm94aW5nb3V0Zml0LmNvbSxsZWFzYUB0cm95a2lja2JveGluZ291dGZpdC5jb20iIC8+CjxpbnB1dCBuYW1lPSJybWlkIiB0eXBlPSJoaWRkZW4iIGlkPSJybWlkIiB2YWx1ZT0iIiAvPgo8bGFiZWwgZm9yPSJGTmFtZSI+Rmlyc3QgTmFtZTwvbGFiZWw+PGlucHV0IHR5cGU9InRleHQiIG5hbWU9IkZOYW1lIiBpZD0iRk5hbWUiIGNsYXNzPSJyYWlubWFrZXItZmllbGRzIHJhaW5tYWtlci1zdHlsZWQiIHJlcXVpcmVkPSJ0cnVlIiAvPjxpbnB1dCBuYW1lPSJGTmFtZVJlcSIgdHlwZT0iaGlkZGVuIiBpZD0iRk5hbWVSZXEiIHZhbHVlPSJ0cnVlIiAvPgo8bGFiZWwgZm9yPSJMTmFtZSI+TGFzdCBOYW1lPC9sYWJlbD48aW5wdXQgdHlwZT0idGV4dCIgbmFtZT0iTE5hbWUiIGlkPSJMTmFtZSIgY2xhc3M9InJhaW5tYWtlci1maWVsZHMgcmFpbm1ha2VyLXN0eWxlZCIgcmVxdWlyZWQ9InRydWUiIC8+PGlucHV0IG5hbWU9IkxOYW1lUmVxIiB0eXBlPSJoaWRkZW4iIGlkPSJMTmFtZVJlcSIgdmFsdWU9InRydWUiIC8+CjxsYWJlbCBmb3I9IkVtYWlsIj5FbWFpbDwvbGFiZWw+PGlucHV0IHR5cGU9ImVtYWlsIiBuYW1lPSJFbWFpbCIgaWQ9IkVtYWlsIiBjbGFzcz0icmFpbm1ha2VyLWZpZWxkcyByYWlubWFrZXItc3R5bGVkIiByZXF1aXJlZD0idHJ1ZSIgLz48aW5wdXQgbmFtZT0iRW1haWxSZXEiIHR5cGU9ImhpZGRlbiIgaWQ9IkVtYWlsUmVxIiB2YWx1ZT0idHJ1ZSIgLz4KPGxhYmVsIGZvcj0iTW9iaWxlIj5Nb2JpbGU8L2xhYmVsPjxpbnB1dCB0eXBlPSJ0ZXh0IiBuYW1lPSJNb2JpbGUiIGlkPSJNb2JpbGUiIGNsYXNzPSJyYWlubWFrZXItZmllbGRzIHJhaW5tYWtlci1zdHlsZWQiIHJlcXVpcmVkPSJ0cnVlIiAvPjxpbnB1dCBuYW1lPSJNb2JpbGVSZXEiIHR5cGU9ImhpZGRlbiIgaWQ9Ik1vYmlsZVJlcSIgdmFsdWU9InRydWUiIC8+CjxpbnB1dCBuYW1lPSJTSUQiIHR5cGU9ImhpZGRlbiIgaWQ9IlNJRCIgdmFsdWU9IjQ2NjciIC8+CjxpbnB1dCBuYW1lPSJSZXR1cm5VUkwiIHR5cGU9ImhpZGRlbiIgaWQ9IlJldHVyblVSTCIgdmFsdWU9IiIgLz48YnIgLz48ZGl2IHN0eWxlPSJwb3NpdGlvbjphYnNvbHV0ZTsgbGVmdDogLTUwMDBweDsiIGFyaWEtaGlkZGVuPSJ0cnVlIj4KICAgICAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIG5hbWU9InJhaW5tYWtlckZsYXJlIiB0YWJpbmRleD0iLTEiIHZhbHVlPSIiIGF1dG9jb21wbGV0ZT0ib2ZmIj4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDxpbnB1dCB0eXBlPSJzdWJtaXQiIGNsYXNzPSJyYWlubWFrZXItYnV0dG9uIiB2YWx1ZT0iU2lnbiBVcCBOb3ciIC8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwhLS0gRU5EIE9GIFJBSU5NQUtFUiBGT1JNIGFkZE1lbWJlcnMuY29tIC0tPgoKICAgICAgICAgICAgPC9kaXY+PCEtLSByYWlubWFrZXItbGVhZGZvcm0tYm9keS1tYXJnaW4gLS0+CiAgICAgICAgPC9kaXY+PCEtLSByYWlubWFrZXItbGVhZGZvcm0tYm9keSAtLT4KCiAgICA8L2Zvcm0+CjwvZGl2PiA8IS0tIHJhaW5tYWtlci1sZWFkZm9ybS1jb250YWluZXIgLS0+');
+                    rainmakerWebformLibrary.processForms();
+                });</script> 
+            <img id="signupLogo" src="images/logo.png">
+        </div>
+        <a href="legal.html" id="legal">Privacy Policy</a>
+    </body>
+</html>

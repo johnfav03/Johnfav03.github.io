@@ -1,0 +1,486 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url(images/bgImage.png);
+    background-repeat: no repeat;
+    background-size: 100vw;
+    background-position: top;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 5.2vw;
+}
+
+.title {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 2.4vw;
+    margin-top: 4vh;
+    margin-bottom: 0vh;
+    margin-left: -1vw;
+}
+
+.storyTitle {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 2.4vw;
+    margin-bottom: 0vh;
+}
+
+.black {
+    color: black;
+}
+
+.bgLogo {
+    background: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(images/logo.png);
+    background-size: 52vw;
+    height: 90vh;
+    width: 100vw;
+    display: block;
+    position: fixed;
+    top: 6.5vw;
+    left: 24vw;
+    background-repeat: no-repeat;
+    z-index: -2;
+    opacity: .2;
+}
+
+.revButt {
+    width: 3vw;
+    height: 2.5vw;
+    font-size: 1.5vw;
+    padding-bottom: .25vw;
+    position: absolute;
+    margin-top: 9vw;
+    border: none;
+    border-radius: .2vw;
+    outline: none;
+    background-color: #FFFFFF;
+}
+
+.revButt:hover {
+    cursor: pointer;
+}
+
+.revButt:active {
+    background-color: gray;
+}
+
+.instructButt {
+    width: 3vw;
+    height: 2.5vw;
+    font-size: 1.5vw;
+    padding-bottom: .25vw;
+    position: absolute;
+    margin-top: 8vw;
+    border: none;
+    border-radius: .2vw;
+    outline: none;
+    background-color: #FFFFFF;
+    border: .1vw solid gray;
+}
+
+.instructButt:hover {
+    cursor: pointer;
+}
+
+.instructButt:active {
+    background-color: gray;
+}
+
+.left {
+    left: 4vw;
+}
+
+.right {
+    right: 4vw;
+}
+
+.review {
+    display: block;
+    position: absolute;
+    background-color: #FFFFFF;
+    height: 12vw;
+    margin-top: 6vh;
+    font-size: 1.2vw;
+    width: 70vw;
+    left: 15vw;
+    border-radius: .4vw;
+
+}
+
+.comments {
+    overflow: hidden;
+    height: 10vw;
+    margin: 0px;
+    padding: 2vw;
+    display: block;
+    border-radius: .5vw;
+    background-color: #FFFFFF;
+}
+
+#promoBox {
+    background-color: #FFFFFF;
+    height: 12vw;
+    width: 20vw;
+    border-top-left-radius: .4vw;
+    border-bottom-left-radius: .4vw;
+    position: absolute;
+    left: 30vw;
+    top: 67vh;
+}
+
+#contactBox {
+    background-color: #81A7E1;
+    height: 12vw;
+    width: 20vw;
+    border-top-right-radius: .4vw;
+    border-bottom-right-radius: .4vw;
+    position: absolute;
+    left: 50vw;
+    top: 67vh; 
+}
+
+h2 {
+    margin-top: 1.4vw;
+    font-size: 1.4vw;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1vw;
+    font-weight: normal;
+}
+
+h4 {
+    margin-top: 1.5vw;
+    height: 1.5vw;
+    padding: .5vw;
+    font-size: 1vw;
+    width: 12vw;
+    margin-left: 4vw;
+    background-color: #F76767;;
+    border-radius: .2vw;
+}
+
+.priceBtn {
+    color: white;
+    text-decoration: none;
+    height: 4vw;
+    width: 12vw;
+    font-weight: normal;
+}
+
+#contactBox p {
+    padding-left: 2.6vw;
+    float: left;
+    margin: .5vw 0vw;
+    color: white;
+    font-size: 1vw;
+    vertical-align: middle;
+    display: block;
+    height: 1.6vw;
+} 
+
+#contactBox img {
+    width: 1.6vw;
+    margin-right: .6vw;
+    display: block;
+    float: left;
+}
+
+#contactBox a {
+    text-decoration: none;
+    color: white;
+    padding-bottom: .4vw;
+    display: block;
+    float: left;
+}
+
+#contactBox a:hover {
+    text-decoration: underline;
+}
+
+.bgWhite {
+    text-align: center;
+    width: 90vw;
+    height: 30vw;
+    background-color: #FFF;
+    left: 5vw;
+    top: 12vw;
+    position: absolute;
+    padding: 0vw;
+    border-radius: 1vw;
+}
+
+.instructCont {
+    display: block;
+    width: 90vw;
+    height: 36vw;
+    margin-top: 1.5vw;
+    margin-left: 0vw;
+    top: 0px;
+    left: 0px;
+}
+
+.instructBox {
+    width: 66vw;
+    height: 21vw;
+    margin-left: 12vw;
+    position: absolute;
+    float: left;
+    text-align: center;
+    background-color: #FFF;
+    vertical-align: center;
+}
+
+.instructInfo {
+    float: left;
+    height: 21vw;
+    margin-right: 4vw
+}
+
+.instructBox img {
+    height: 16vw;
+}
+
+.instructBox h5 {
+    color: black;
+    font-size: 2.2vw;
+    margin-top: 1vw;
+    margin-bottom: 0vw;
+}
+
+.instructBox p {
+    margin-top: 0vw;
+    font-size: 1.1vw;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.halfBox {
+    float: left;
+    text-align: left;
+}
+
+.halfBox img {
+    margin-top: 3vh;
+    margin-left: -1vw;
+    width: 12vw;
+    height: 10vw;
+    background-color: blue;
+}
+
+.storyTxt {
+    margin-top: 3vh;
+    margin-left: 4vw;
+    margin-right: 34vw;
+    margin-bottom: 4vh;
+    display: block;
+    float: left;
+    width: 50vw;
+    height: 10vw;
+    font-size: .9vw;
+    text-align: center;
+}
+
+.gallery {
+    height: 20vw;
+    width: 72vw;
+    margin-top: 2vh;
+    margin-left: -5vw; 
+}
+
+.imgBox {
+    display: block;
+    background-color: #FFF;
+    margin: 1vw 4vw;
+    height: 8vw;
+    width: 16vw;
+    float: left;
+    text-align: center;
+    padding: 0px;
+    background-color: gray;
+}
+
+.imgBox img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.galContainer {
+    width: 90vw;
+    height: 30vw;
+    left: 0;
+    top: 0;
+    position: absolute;
+    padding: 0vw;
+}
+
+.mySlides {
+    margin: 0px;
+    height: 27vw;
+    width: 36vw;
+    left: 14vw;
+    top: 1.5vw;
+    position: absolute;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.row {
+    height: 27vw;
+    width: 25vw;
+    display: block;
+    top: 1.5vw;
+    left: 51.5vw;
+    position: absolute;
+}
+
+.column {
+    height: 8vw;
+    width: 10.66vw;
+    margin-bottom: 1.5vw;
+    margin-right: 1.5vw;
+    float: left;
+}
+
+.demo {
+  opacity: 0.8;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.memBtn {
+    width: 16vw;
+    height: 2.40vw;
+    position: absolute;
+    top: 1vw;
+    left: 2vw;
+    background-color: #F76767;
+    border-radius: .2vw;
+    font-size: 1.5vw;
+    color: white;
+    text-decoration: none;
+    padding-top: .60vw;
+}
+
+#signupLogo {
+    position: absolute;
+    width: 18vw;
+    opacity: .7;
+    left: 47vw;
+    top: 3vw;
+}
+
+#rainmaker-leadform-container {
+    width: 90vw;
+	height: 30vw;
+    display: block;
+    margin: 0;
+    position: absolute;
+    left: 5vw;
+    top: 12vw;
+    border-radius: 1vw;
+}
+
+#rmform {
+    height: 30vw;
+    width: 90vw;
+    display: block;
+}
+
+#rainmaker-leadform-body {
+    width: 90vw;
+    height: 30vw;
+    border-radius: 1vw;
+    
+}
+
+#rainmaker-leadform-body-margin {
+	padding: .6vw 24vw;
+}
+
+.rainmaker-button {
+    width: 20vw;
+    height: 6vw;
+    cursor: pointer;
+    border: 1px solid #707070;
+    border-radius: 2px;
+    margin: 0;
+    color: black;
+    font-size: 1.2vw;
+    position: absolute;
+    left: 46vw;
+    top: 20vw;
+}
+
+.rainmaker-button:focus {
+    outline: none;
+}
+
+.rainmaker-fields
+{
+    display: block;
+    margin-top: 0vw;
+    height: 2vw;
+    width: 16vw;
+    font-size: 1.2vw;
+    color: #707070;
+    border: 1px solid #707070;
+    border-radius: 2px;
+}
+
+.rainmaker-fields:focus
+{
+    outline: none;
+}
+
+label 
+{
+	color: black;
+    font-size: 1.2vw;
+	width: 10vw;
+	display: block;
+    margin-top: 2vw;
+    margin-bottom: .6vw;
+	text-align: left;
+	vertical-align: top;
+}
+
+#rainmaker-webformIntro {
+    color: white !important;
+    padding: 3px !important;
+}
+
+#rainmaker-webformIntro {
+    color: white !important;
+    padding: 3px !important;
+}
+
+.rainmaker-agegroup, .rainmaker-agegroupheader {
+    color: #FFFFFF !important;
+}
+
+.rainmaker-offerstitle {
+    color: #FFFFFF !important;
+
+}
+
+.rainmaker-offers {
+    color: #FFFFFF !important;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>TKO</title>
+        <meta name="description" content="">
+        <link rel="icon" href="images/logo.png">
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="nav-style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+    </script>
+    <body>
+        <ul id="navBar">
+            <li class="navButt"><a href="index.html">Home</a></li>
+            <li class="navButt"><a href="story.html">Our Story</a></li>
+            <li class="navButt"><a href="community.html">Our Community</a></li>
+            <li class="navButt"><a href="classes.html">Classes</a></li>
+            <li class="navButt"><a href="instructors.html">Instructors</a></li>
+            <li class="navButt"><a href="membership.html">Contact</a></li>
+        </ul>
+        <div class="bgLogo"></div>
+        <div class="bgWhite">
+            <div class="galContainer">
+                <div class="mySlides">
+                    <img src="images/communityOne.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <img src="images/communityTwo.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <img src="images/communityThree.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <img src="images/communityFour.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <img src="images/communityFive.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <img src="images/communitySix.jpg" style="width:100%">
+                </div>
+
+                <!-- Thumbnail images -->
+                <div class="row">
+                    <div class="column">
+                        <img class="demo cursor" src="images/communityOne.jpg" style="width:100%" onclick="currentSlide(1)">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="images/communityTwo.jpg" style="width:100%" onclick="currentSlide(2)">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="images/communityThree.jpg" style="width:100%" onclick="currentSlide(3)">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="images/communityFour.jpg" style="width:100%" onclick="currentSlide(4)" >
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="images/communityFive.jpg" style="width:100%" onclick="currentSlide(5)" >
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="images/communitySix.jpg" style="width:100%" onclick="currentSlide(6)" >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="legal.html" id="legal">Privacy Policy</a>
+    </body>
+</html>
