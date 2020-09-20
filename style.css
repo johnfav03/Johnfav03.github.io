@@ -48,27 +48,6 @@ body {
     opacity: .2;
 }
 
-.revButt {
-    width: 3vw;
-    height: 2.5vw;
-    font-size: 1.5vw;
-    padding-bottom: .25vw;
-    position: absolute;
-    margin-top: 9vw;
-    border: none;
-    border-radius: .2vw;
-    outline: none;
-    background-color: #FFFFFF;
-}
-
-.revButt:hover {
-    cursor: pointer;
-}
-
-.revButt:active {
-    background-color: gray;
-}
-
 .instructButt {
     width: 3vw;
     height: 2.5vw;
@@ -103,22 +82,19 @@ body {
     display: block;
     position: absolute;
     background-color: #FFFFFF;
-    height: 12vw;
+    height: 18vw;
     margin-top: 6vh;
     font-size: 1.2vw;
-    width: 70vw;
+    width: 60vw;
     left: 15vw;
-    border-radius: .4vw;
-
 }
 
 .comments {
     overflow: hidden;
-    height: 10vw;
+    height: 18vw;
     margin: 0px;
     padding: 2vw;
     display: block;
-    border-radius: .5vw;
     background-color: #FFFFFF;
 }
 
@@ -240,7 +216,14 @@ h4 {
 .instructInfo {
     float: left;
     height: 21vw;
-    margin-right: 4vw
+    margin-right: 4vw;
+}
+
+.priceInfo {
+    position: absolute;
+    height: 20vw;
+    margin: 0vw;
+    top: 3vw;
 }
 
 .instructBox img {
@@ -386,7 +369,7 @@ h4 {
 #signupLogo {
     position: absolute;
     width: 18vw;
-    opacity: .7;
+    opacity: .78;
     left: 47vw;
     top: 3vw;
 }

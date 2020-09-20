@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>TKO</title>
+        <meta name="description" content="">
+        <link rel="icon" href="images/logo.png">
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="nav-style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
+        <script>
+        var slideIndex = 0;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("review");
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length} ;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex-1].style.display = "block";
+        }
+    </script>
+    <body>
+        <ul id="navBar">
+            <li class="navButt"><a href="index.html">Home</a></li>
+            <li class="navButt"><a href="story.html">Our Story</a></li>
+            <li class="navButt"><a href="community.html">Community</a></li>
+            <li class="navButt"><a href="classes.html">Classes</a></li>
+            <li class="navButt"><a href="instructors.html">Instructors</a></li>
+            <li class="navButt"><a href="reviews.html">Reviews</a></li>
+            <li class="navButt"><a href="price.html">Prices</a></li>
+            <li class="navButt"><a href="membership.html">Contact</a></li>
+        </ul>
+        <div class="bgLogo"></div>
+        <div class="bgWhite">
+            <h1 class="storyTitle black">Reviews</h1>
+            <button class="instructButt left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="instructButt right" onclick="plusDivs(+1)">&#10095;</button>
+            <div class="review">
+                <p class="comments">TKO is the best work out I have done in years and a something I actually enjoy doing every day!! The staff is so friendly and always willing to help; they also make every class fun and are very motivational.  Since joining I have already lost 15 lbs. and counting, I would definitely recommend this workout to everyone at any fitness level!!<br><br>-Yelp</p>
+            </div>
+        
+            <div class="review">
+                <p class="comments">I am so glad I found TKO in Troy.  The first    thing that lured me was the amazing 3 class deal so I felt if I did try it and did not like it I was not out a ton of money.  From the first class I was welcomed, given awesome instruction, and made to feel not intimidated due to my physical limitations . I was encouraged and the instructor was very patient and showed me the proper way to kickbox.  Best decision I made to try it and now I am a member. <br><br>-Yelp</p>
+            </div>
+        </div>
+        <a href="legal.html" id="legal">Privacy Policy</a>
+    </body>
+</html>
